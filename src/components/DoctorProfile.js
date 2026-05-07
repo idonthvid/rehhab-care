@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './DoctorProfile.css';
 import LazySection from './LazySection';
 import Header from './Header';
@@ -113,6 +114,11 @@ const DoctorProfile = () => {
 
     return (
         <div className="doctor-profile-page">
+            <Helmet>
+                <title>{doctor.name} - {doctor.role} | Rehabb Care</title>
+                <meta name="description" content={`Meet ${doctor.name}, ${doctor.role} at Rehabb Care. ${doctor.about.substring(0, 150)}...`} />
+                <link rel="canonical" href={`https://rehabb.care/doctor/${id}`} />
+            </Helmet>
             <Header />
             <button className="back-btn" onClick={() => navigate('/')}>
                 ← Back to Home
