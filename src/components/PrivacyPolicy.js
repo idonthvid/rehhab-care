@@ -234,7 +234,7 @@ const PrivacyPolicy = () => {
                         <p><strong>Rehabb Care — Home Physiotherapy Services</strong></p>
                         <p>Address: Hyderabad, Telangana, India</p>
                         <p>Email: rehab.care@gmail.com</p>
-                        <p>Phone: +91-965 2468 777</p>
+                        <p>Phone: +91 9652468777</p>
                         <p>Website: www.rehabb.care</p>
                     </div>
                 </section>

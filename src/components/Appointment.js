@@ -47,8 +47,8 @@ const Appointment = () => {
 
             // Redirect to WhatsApp after showing success message
             setTimeout(() => {
-                const phoneNumber = '919045678345';
-                const message = "I'm looking for expert Physiotherapy Services.";
+                const phoneNumber = '919652468777';
+                const message = "Hi, I'm looking for Home Physiotherapy in Hyderabad. What treatment options do you offer and what are the charges?";
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
 

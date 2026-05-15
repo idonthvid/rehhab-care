@@ -126,7 +126,7 @@ const BackNeckService = () => {
                     </div>
                     <div className="bn-hero-buttons">
                         <a
-                            href="https://wa.me/919653148777?text=Hello!%20I%20would%20like%20to%20book%20a%20consultation%20for%20Back%20%26%20Neck%20Pain."
+                            href="https://wa.me/919652468777?text=Hi%2C%20I'm%20looking%20for%20Home%20Physiotherapy%20in%20Hyderabad.%20What%20treatment%20options%20do%20you%20offer%20and%20what%20are%20the%20charges%3F"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bn-btn-primary"
@@ -326,7 +326,7 @@ const BackNeckService = () => {
                         </p>
                         <div className="bn-cta-buttons">
                             <a
-                                href="https://wa.me/919653148777?text=Hello!%20I%20would%20like%20to%20book%20a%20consultation%20for%20Back%20%26%20Neck%20Pain."
+                                href="https://wa.me/919652468777?text=Hi%2C%20I'm%20looking%20for%20Home%20Physiotherapy%20in%20Hyderabad.%20What%20treatment%20options%20do%20you%20offer%20and%20what%20are%20the%20charges%3F"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bn-btn-primary"

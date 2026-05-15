@@ -4,7 +4,7 @@ import './WhatsAppFloat.css';
 const WhatsAppFloat = () => {
     const [showPopup, setShowPopup] = useState(false);
     const [message, setMessage] = useState('');
-    const phoneNumber = '919045678345';
+    const phoneNumber = '919652468777';
 
     const handleFloatClick = () => {
         setShowPopup(true);
@@ -16,7 +16,7 @@ const WhatsAppFloat = () => {
     };
 
     const handleSend = () => {
-        const textToSend = message.trim() || 'Hello! I would like to know more about your services.';
+        const textToSend = message.trim() || "Hi, I'm looking for Home Physiotherapy in Hyderabad. What treatment options do you offer and what are the charges?";
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(textToSend)}`;
         window.open(url, '_blank');
         handleClose();
