@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './App.css';
 import Header from './components/Header';
@@ -27,6 +27,7 @@ import GeriatricService from './services/GeriatricService';
 import PostSurgeryService from './services/PostSurgeryService';
 import PostOperativeService from './services/PostOperativeService';
 import ScrollToTop from './components/ScrollToTop';
+import LocationPage from './locations/LocationPage';
 
 function HomePage() {
     const location = useLocation();
@@ -266,6 +267,61 @@ function FAQPageRoute() {
     );
 }
 
+function DynamicLocationPage() {
+    const { location } = useParams();
+    const [locationData, setLocationData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const loadLocationData = async () => {
+            try {
+                setLoading(true);
+                // Dynamically import the JSON file based on the URL parameter
+                const data = await import(`./data/${location}.json`);
+                setLocationData(data.default || data);
+                setError(null);
+            } catch (err) {
+                console.error(`Failed to load location data for ${location}:`, err);
+                setError('Location not found');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (location) {
+            loadLocationData();
+        }
+    }, [location]);
+
+    if (loading) {
+        return (
+            <>
+                <Header />
+                <div style={{ padding: '200px 20px', textAlign: 'center' }}>
+                    <h2>Loading...</h2>
+                </div>
+                <Footer />
+            </>
+        );
+    }
+
+    if (error || !locationData) {
+        return (
+            <>
+                <Header />
+                <div style={{ padding: '200px 20px', textAlign: 'center' }}>
+                    <h2>Location Not Found</h2>
+                    <p>The location you're looking for doesn't exist.</p>
+                </div>
+                <Footer />
+            </>
+        );
+    }
+
+    return <LocationPage locationData={locationData} />;
+}
+
 function App() {
     return (
         <Router>
@@ -285,6 +341,8 @@ function App() {
                     <Route path="/services/post-operative" element={<PostOperativeServicePage />} />
                     <Route path="/faq" element={<FAQPageRoute />} />
                     <Route path="/doctor/:id" element={<><DoctorProfile /><WhatsAppFloat /></>} />
+                    {/* Dynamic location routes - add new JSON files to src/data/ folder */}
+                    <Route path="/:location" element={<DynamicLocationPage />} />
                 </Routes>
             </div>
         </Router>
