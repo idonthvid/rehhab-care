@@ -82,7 +82,7 @@ const Header = () => {
         <header className="header">
             <nav className="navbar">
                 <a href="/" className="logo" onClick={handleLogoClick}>
-                    <img src="/images/logo.svg" alt="Rehabb Care" fetchpriority="high" />
+                    <img src="/images/logo.svg?v=2" alt="Rehabb Care" fetchpriority="high" />
                 </a>
 
                 <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
